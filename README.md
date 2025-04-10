@@ -52,8 +52,4 @@ This project is configured to deploy automatically to GitHub Pages using GitHub 
 
 ## License
 
-<<<<<<< HEAD
 MIT
-=======
-MIT
->>>>>>> c2df9f1e5beed34034488ca226a9c65d197c81fa
