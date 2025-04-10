@@ -41,7 +41,7 @@ You can create or edit your MCP configuration directly through Cursor's interfac
 2. Navigate to the MCP settings page
 3. Click "+ Add new global MCP server"
 
-<img src="../images/add-mcp-cursor.png" alt="Adding MCP server in Cursor" width="600" />
+<!-- <img src="/images/add-mcp-cursor.png" alt="Adding MCP server in Cursor" width="600" /> -->
 
 This will create or edit the `~/.cursor/mcp.json` file with your MCP server configuration.
 
@@ -85,7 +85,7 @@ cursor mcp
 
 This will show the connection status and any error messages from your MCP servers:
 
-<img src="../images/mcp-output.png" alt="MCP debug output in terminal" width="600" />
+<!-- <img src="/images/mcp-output.png" alt="MCP debug output in terminal" width="600" /> -->
 
 ## Common Setup Issues
 
