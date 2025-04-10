@@ -25,6 +25,10 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Fix base path in index.html
+        run: |
+          find dist -name "*.html" -exec sed -i 's|type="module" crossorigin|type="module" crossorigin|g' {} \;
+          find dist -name "*.js" -exec sed -i 's|/assets/|./assets/|g' {} \;
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
