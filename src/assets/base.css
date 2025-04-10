@@ -19,6 +19,14 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  /* Custom colors for MCP Guide */
+  --color-primary: #0366d6;
+  --color-primary-hover: #0078ff;
+  --color-header-bg: #1a1a1a;
+  --color-header-text: white;
+  --color-footer-bg: #f6f8fa;
+  --color-footer-text: #586069;
 }
 
 /* semantic color variables for this project */
@@ -36,20 +44,6 @@
   --section-gap: 160px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -62,12 +56,8 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
   line-height: 1.6;
   font-family:
-    Inter,
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
@@ -79,7 +69,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

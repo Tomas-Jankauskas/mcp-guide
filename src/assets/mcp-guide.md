@@ -25,6 +25,8 @@ For TypeScript-based servers from the official repository, you can use them with
 npx -y @modelcontextprotocol/server-memory
 ```
 
+> **What is npx?** npx is a package runner tool that comes with npm (Node Package Manager). It allows you to execute Node.js packages without installing them globally. When you run the command above, npx automatically downloads the specified package temporarily, executes it, and then removes it from your system afterward. This makes it convenient for running MCP servers without permanently installing them on your machine.
+
 ### Option B: Create Your Own Custom MCP Server (Advanced)
 If you can't find an existing server that meets your needs, you can create your own custom server. This is an advanced option that requires programming knowledge using the official SDKs:
 
@@ -34,7 +36,16 @@ If you can't find an existing server that meets your needs, you can create your 
 This option is only recommended if you have specific requirements that aren't met by existing servers.
 
 ## Step 3: Create Configuration File
-Create an MCP configuration file in one of two locations:
+You can create or edit your MCP configuration directly through Cursor's interface:
+1. Go to Settings
+2. Navigate to the MCP settings page
+3. Click "+ Add new global MCP server"
+
+<img src="../images/add-mcp-cursor.png" alt="Adding MCP server in Cursor" width="600" />
+
+This will create or edit the `~/.cursor/mcp.json` file with your MCP server configuration.
+
+Alternatively, you can manually create an MCP configuration file in one of two locations:
 - **Project-specific**: Create `.cursor/mcp.json` in your project directory
 - **Global**: Create `~/.cursor/mcp.json` in your home directory
 
@@ -65,9 +76,39 @@ Check that your MCP tools appear in Cursor:
 3. Navigate to the MCP settings page
 4. Verify your tools are listed under "Available Tools"
 
+Your properly connected MCP tools should display with a green dot indicator. If the green status indicator is missing, you may need to debug your setup.
+
+To debug MCP connection issues, open your terminal and run Cursor with the MCP debug flag:
+```bash
+cursor mcp
+```
+
+This will show the connection status and any error messages from your MCP servers:
+
+<img src="../images/mcp-output.png" alt="MCP debug output in terminal" width="600" />
+
 ## Common Setup Issues
 
 If you encounter issues with your MCP setup, check these common problems:
+
+### Path Resolution for npx
+In some cases, Cursor might not be able to find the `npx` command in your system path, especially if you have multiple Node.js installations or are using version managers like nvm. If your MCP server fails to start with commands using npx, try specifying the full path to npx in your configuration:
+
+```json
+{
+  "mcpServers": {
+    "my-github-server": {
+      "command": "/usr/local/bin/npx",
+      "args": ["-y", "@mcp/github-tools"],
+      "env": {
+        "GITHUB_TOKEN": "your-github-token"
+      }
+    }
+  }
+}
+```
+
+You can find the full path to npx by running `which npx` in your terminal.
 
 ### Tools Not Appearing in Cursor
 - Verify your configuration file is in the correct location
